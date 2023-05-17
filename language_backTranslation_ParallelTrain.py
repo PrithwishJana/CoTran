@@ -926,7 +926,7 @@ if __name__ == '__main__':
     ckpt = torch.load("./bestModels/java2py_bestModel.ckpt", map_location='cpu')["state_dict"]
     ckpt = dict((key.replace("model.", ""), value) for (key, value) in ckpt.items())
     model.loadFwdModelWt(ckpt)
-    ckpt = torch.load("./bestModels/java2py_bestModel.ckpt", map_location='cpu')["state_dict"]
+    ckpt = torch.load("./bestModels/py2java_bestModel.ckpt", map_location='cpu')["state_dict"]
     ckpt = dict((key.replace("model.", ""), value) for (key, value) in ckpt.items())
     model.loadBkwdModelWt(ckpt)
     del ckpt
