@@ -52,6 +52,7 @@ python language_translation_Tokenizer.py \
 srun python ./language_backTranslation_ParallelTrain.py \
   --cf_mode 0 \
   --cf_weight 0 \
+  --sf_weight 0 \
   --num_epochs 100 \
   --src_lang "java" \
   --dest_lang "python" \
