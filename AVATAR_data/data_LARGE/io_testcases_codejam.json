@@ -1,0 +1,731 @@
+{
+    "codejam_12_23": [
+        [
+            "2\n20 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20\n20 120 266 858 1243 1657 1771 2328 2490 2665 2894 3117 4210 4454 4943 5690 6170 7048 7125 9512 9600\n",
+            "Case #1: Possible\nCase #2: Possible\n"
+        ]
+    ],
+    "codejam_15_02": [
+        [
+            "3\n1\n3\n4\n1 2 1 2\n1\n4\n",
+            "Case #1: 3\nCase #2: 2\nCase #3: 3\n"
+        ]
+    ],
+    "codejam_17_33": [
+        [
+            "4\n4 4\n1.4000\n0.5000 0.7000 0.8000 0.6000\n2 2\n1.0000\n0.0000 0.0000\n2 1\n0.0000\n0.9000 0.8000\n2 1\n0.1000\n0.4000 0.5000\n",
+            [
+                "Case #1: 1.000000\nCase #2: 0.250000\nCase #3: 0.980000\nCase #4: 0.760000\n",
+                "Case #1: 1.0\nCase #2: 0.25\nCase #3: 0.7200000000000001\nCase #4: 0.25\n"
+            ]
+        ]
+    ],
+    "codejam_08_11": [
+        [
+            "2\n3\n1 3 -5\n-2 4 1\n5\n1 2 3 4 5\n1 0 1 0 1\n",
+            "Case #1: -25\nCase #2: 6\n"
+        ]
+    ],
+    "codejam_12_11": [
+        [
+            "3\n2 5\n0.6 0.6\n1 20\n1\n3 4\n1 0.9 0.1\n",
+            "Case #1: 7.000000\nCase #2: 20.000000\nCase #3: 4.500000\n"
+        ]
+    ],
+    "codejam_16_32": [
+        [
+            "3\n5 4\n2 1\n4 20\n",
+            "Case #1: POSSIBLE\n01001\n00110\n00001\n00101\n00000\nCase #2: POSSIBLE\n01\n00\nCase #3: IMPOSSIBLE\n"
+        ]
+    ],
+    "codejam_15_32": [
+        [
+            "5\n7 6 6\nBANANAS\nMONKEY\n2 3 4\nAA\nAAA\n2 1 2\nAB\nB\n6 2 2\nGOOGLE\nGO\n26 11 100\nABCDEFGHIJKLMNOPQRSTUVWXYZ\nROSENCRANTZ\n",
+            "Case #1: 0.0\nCase #2: 0.0\nCase #3: 1.0\nCase #4: 0.8888889\nCase #5: 9.0\n"
+        ]
+    ],
+    "codejam_10_03": [
+        [
+            "3\n4 6 4\n1 4 2 1\n100 10 1\n1\n5 5 10\n2 4 2 3 4 2 1 2 1 3\n",
+            "Case #1: 21\nCase #2: 100\nCase #3: 20\n"
+        ]
+    ],
+    "codejam_10_12": [
+        [
+            "2\n6 6 2 3\n1 7 5\n100 1 5 3\n1 50 7\n",
+            "Case #1: 4\nCase #2: 17\n"
+        ]
+    ],
+    "codejam_15_22": [
+        [
+            "4\n2 3 6\n4 1 2\n3 3 8\n5 2 0\n",
+            "Case #1: 7\nCase #2: 0\nCase #3: 8\nCase #4: 0\n"
+        ]
+    ],
+    "codejam_11_04": [
+        [
+            "3\n2\n2 1\n3\n1 3 2\n4\n2 1 4 3\n",
+            "Case #1: 2.000000\nCase #2: 2.000000\nCase #3: 4.000000\n"
+        ]
+    ],
+    "codejam_16_41": [
+        [
+            "4\n1 1 1 0\n1 2 0 0\n2 1 1 2\n2 2 0 2\n",
+            "Case #1: PR\nCase #2: IMPOSSIBLE\nCase #3: PSRS\nCase #4: IMPOSSIBLE\n"
+        ]
+    ],
+    "codejam_14_41": [
+        [
+            "3\n3 100\n10 20 70\n4 100\n30 40 60 70\n5 100\n10 20 30 40 60\n",
+            "Case #1: 2\nCase #2: 2\nCase #3: 3\n"
+        ]
+    ],
+    "codejam_13_22": [
+        [
+            "7\n1 0 0\n1 0 2\n3 0 0\n3 2 0\n3 1 1\n4 1 1\n4 0 2\n",
+            "Case #1: 1.0\nCase #2: 0.0\nCase #3: 1.0\nCase #4: 0.75\nCase #5: 0.25\nCase #6: 0.5\nCase #7: 0.0\n"
+        ]
+    ],
+    "codejam_13_12": [
+        [
+            "3\n5 2 2\n2 1\n5 2 2\n1 2\n3 3 4\n4 1 3 5\n",
+            "Case #1: 12\nCase #2: 12\nCase #3: 39\n"
+        ]
+    ],
+    "codejam_09_33": [
+        [
+            "2\n8 1\n3\n20 3\n3 6 14\n",
+            "Case #1: 7\nCase #2: 35\n"
+        ]
+    ],
+    "codejam_14_02": [
+        [
+            "4\n30.0 1.0 2.0\n30.0 2.0 100.0\n30.50000 3.14159 1999.19990\n500.0 4.0 2000.0\n",
+            "Case #1: 1.0000000\nCase #2: 39.1666667\nCase #3: 63.9680013\nCase #4: 526.1904762\n"
+        ]
+    ],
+    "codejam_16_01": [
+        [
+            "5\n0\n1\n2\n11\n1692\n",
+            "Case #1: INSOMNIA\nCase #2: 10\nCase #3: 90\nCase #4: 110\nCase #5: 5076\n"
+        ]
+    ],
+    "codejam_14_11": [
+        [
+            "3\n3 2\n01 11 10\n11 00 10\n2 3\n101 111\n010 001\n2 2\n01 10\n10 01\n",
+            "Case #1: 1\nCase #2: NOT POSSIBLE\nCase #3: 0\n"
+        ]
+    ],
+    "codejam_17_41": [
+        [
+            "3\n4 3\n4 5 6 4\n4 2\n4 5 6 4\n3 3\n1 1 1\n",
+            "Case #1: 3\nCase #2: 4\nCase #3: 1\n"
+        ]
+    ],
+    "codejam_17_42": [
+        [
+            "5\n2 2 2\n2 1\n2 2\n2 2 2\n1 1\n1 2\n2 2 2\n1 1\n2 1\n1000 1000 4\n3 2\n2 1\n3 3\n3 1\n3 3 5\n3 1\n2 2\n3 3\n2 2\n3 1\n",
+            "Case #1: 1 1\nCase #2: 2 0\nCase #3: 2 0\nCase #4: 2 1\nCase #5: 2 1\n"
+        ]
+    ],
+    "codejam_09_31": [
+        [
+            "3\n11001001\ncats\nzig\n",
+            "Case #1: 201\nCase #2: 75\nCase #3: 11\n"
+        ]
+    ],
+    "codejam_08_01": [
+        [
+            "2\n5\nYeehaw\nNSM\nDont Ask\nB9\nGoogol\n10\nYeehaw\nYeehaw\nGoogol\nB9\nGoogol\nNSM\nB9\nNSM\nDont Ask\nGoogol\n5\nYeehaw\nNSM\nDont Ask\nB9\nGoogol\n7\nGoogol\nDont Ask\nNSM\nNSM\nYeehaw\nYeehaw\nGoogol\n",
+            "Case #1: 1\nCase #2: 0\n"
+        ]
+    ],
+    "codejam_16_13": [
+        [
+            "4\n4\n2 3 4 1\n4\n3 3 4 1\n4\n3 3 4 3\n10\n7 8 10 10 9 2 9 6 3 3\n",
+            "Case #1: 4\nCase #2: 3\nCase #3: 3\nCase #4: 6\n"
+        ]
+    ],
+    "codejam_14_33": [
+        [
+            "2\n4 5 8\n3 5 11\n",
+            "Case #1: 6\nCase #2: 8\n"
+        ]
+    ],
+    "codejam_12_03": [
+        [
+            "\n4\n1 9\n10 40\n100 500\n1111 2222\n",
+            "\nCase #1: 0\nCase #2: 3\nCase #3: 156\nCase #4: 287\n"
+        ]
+    ],
+    "codejam_16_42": [
+        [
+            "3\n2 2\n0.50 0.50\n4 2\n0.00 0.00 1.00 1.00\n3 2\n0.75 1.00 0.50\n",
+            "Case #1: 0.5\nCase #2: 1.0\nCase #3: 0.5\n"
+        ]
+    ],
+    "codejam_08_42": [
+        [
+            "3\n1 1 1\n1 2 64\n10 10 1\n",
+            "Case #1: 0 0 0 1 1 1\nCase #2: IMPOSSIBLE\nCase #3: 1 1 2 3 5 8\n"
+        ]
+    ],
+    "codejam_15_23": [
+        [
+            "3\n4\n1 1 12\n359 1 12\n2 1 12\n358 1 12\n2\n180 1 100000\n180 1 1\n1\n180 2 1\n",
+            "Case #1: 0\nCase #2: 1\nCase #3: 0\n"
+        ]
+    ],
+    "codejam_12_41": [
+        [
+            "\n4\n3\n3 4\n4 10\n6 10\n9\n3\n3 4\n4 10\n7 10\n9\n2\n6 6\n10 3\n13\n2\n6 6\n10 3\n14\n",
+            "\nCase #1: YES\nCase #2: NO\nCase #3: YES\nCase #4: NO\n"
+        ]
+    ],
+    "codejam_15_52": [
+        [
+            "3\n10 2\n1 2 3 4 5 6 7 8 9\n100 100\n-100\n7 3\n0 12 0 12 0\n",
+            "Case #1: 5\nCase #2: 0\nCase #3: 12\n"
+        ]
+    ],
+    "codejam_11_52": [
+        [
+            "4\n10 1 2 3 4 5 10 9 8 7 6\n8 101 102 103 104 105 106 103 104\n0\n5 1 2 3 4 9\n",
+            "Case #1: 10\nCase #2: 4\nCase #3: 0\nCase #4: 1\n"
+        ]
+    ],
+    "codejam_08_54": [
+        [
+            "5\n1 1 0\n4 4 1\n2 1\n3 3 0\n7 10 2\n1 2\n7 1\n4 4 1\n3 2\n",
+            "Case #1: 1\nCase #2: 2\nCase #3: 0\nCase #4: 5\nCase #5: 1\n"
+        ]
+    ],
+    "codejam_15_31": [
+        [
+            "3\n1 4 2\n1 7 7\n2 5 1\n",
+            "Case #1: 3\nCase #2: 7\nCase #3: 10\n"
+        ]
+    ],
+    "codejam_12_31": [
+        [
+            "\n3\n3\n1 2\n1 3\n0\n5\n2 2 3\n1 4\n1 5\n1 5\n0\n3\n2 2 3\n1 3\n0\n",
+            "\nCase #1: No\nCase #2: Yes\nCase #3: Yes\n"
+        ]
+    ],
+    "codejam_15_11": [
+        [
+            "4\n4\n10 5 15 5\n2\n100 100\n8\n81 81 81 81 81 81 81 0\n6\n23 90 40 0 100 9\n",
+            "Case #1: 15 25\nCase #2: 0 0\nCase #3: 81 567\nCase #4: 181 244\n"
+        ]
+    ],
+    "codejam_15_13": [
+        [
+            "2\n5\n0 0\n10 0\n10 10\n0 10\n5 5\n9\n0 0\n5 0\n10 0\n0 5\n5 5\n10 5\n0 10\n5 10\n10 10\n",
+            "Case #1:\n0\n0\n0\n0\n1\n\nCase #2:\n0\n0\n0\n0\n3\n0\n0\n0\n0\n"
+        ]
+    ],
+    "codejam_10_54": [
+        [
+            "2\n6 10\n8 4\n",
+            "Case #1: 4\nCase #2: 4\n"
+        ]
+    ],
+    "codejam_13_21": [
+        [
+            "4\n2 2\n2 1\n2 4\n2 1 1 6\n10 4\n25 20 9 100\n1 4\n1 1 1 1\n",
+            "Case #1: 0\nCase #2: 1\nCase #3: 2\nCase #4: 4\n"
+        ]
+    ],
+    "codejam_09_11": [
+        [
+            "3\n2 3\n2 3 7\n9 10\n",
+            "Case #1: 3\nCase #2: 143\nCase #3: 91\n"
+        ]
+    ],
+    "codejam_16_03": [
+        [
+            "1\n6 3\n",
+            "Case #1:\n100011 5 13 147 31 43 1121 73 77 629\n111111 21 26 105 1302 217 1032 513 13286 10101\n111001 3 88 5 1938 7 208 3 20 11\n"
+        ]
+    ],
+    "codejam_08_03": [
+        [
+            "5\n0.250000 1.000000 0.100000 0.010000 0.500000\n0.250000 1.000000 0.100000 0.010000 0.900000\n0.000010 10000.000000 0.000010 0.000010 1000.000000\n0.400000 10000.000000 0.000010 0.000010 700.000000\n1.000000 100.000000 1.000000 1.000000 10.000000",
+            "Case #1: 1.000000\nCase #2: 0.910015\nCase #3: 0.000000\nCase #4: 0.002371\nCase #5: 0.573972"
+        ]
+    ],
+    "codejam_13_54": [
+        [
+            "5\n.X.\nX.X.\n.XX.\nX..XX.\n.XX..X\n",
+            "Case #1: 4.66666666666667\nCase #2: 6.00000000000000\nCase #3: 5.75000000000000\nCase #4: 13.4722222222222\nCase #5: 13.5277777777778\n"
+        ]
+    ],
+    "codejam_08_32": [
+        [
+            "4\n1\n9\n011\n12345\n",
+            "Case #1: 0\nCase #2: 1\nCase #3: 6\nCase #4: 64\n"
+        ]
+    ],
+    "codejam_13_31": [
+        [
+            "4\nquartz 3\nstraight 3\ngcj 2\ntsetse 2\n",
+            "Case #1: 4\nCase #2: 11\nCase #3: 3\nCase #4: 11\n"
+        ]
+    ],
+    "codejam_11_11": [
+        [
+            "3\n1 100 50\n10 10 100\n9 80 56\n",
+            "Case #1: Possible\nCase #2: Broken\nCase #3: Possible\n"
+        ]
+    ],
+    "codejam_14_04": [
+        [
+            "4\n1\n0.5\n0.6\n2\n0.7 0.2\n0.8 0.3\n3\n0.5 0.1 0.9\n0.6 0.4 0.3\n9\n0.186 0.389 0.907 0.832 0.959 0.557 0.300 0.992 0.899\n0.916 0.728 0.271 0.520 0.700 0.521 0.215 0.341 0.458\n",
+            "Case #1: 0 0\nCase #2: 1 0\nCase #3: 2 1\nCase #4: 8 4\n"
+        ]
+    ],
+    "codejam_08_33": [
+        [
+            "2\n5 5 0 0 5\n1\n2\n1\n2\n3\n6 2 2 1000000000 6\n1\n2\n",
+            "Case #1: 15\nCase #2: 13\n"
+        ]
+    ],
+    "codejam_15_21": [
+        [
+            "3\n1\n19\n23\n",
+            "Case #1: 1\nCase #2: 19\nCase #3: 15\n"
+        ]
+    ],
+    "codejam_17_02": [
+        [
+            "4\n132\n1000\n7\n111111111111111110\n",
+            "Case #1: 129\nCase #2: 999\nCase #3: 7\nCase #4: 99999999999999999\n"
+        ]
+    ],
+    "codejam_08_44": [
+        [
+            "2\n4\nabcabcabcabc\n3\nabcabcabcabc\n",
+            "Case #1: 7\nCase #2: 12\n"
+        ]
+    ],
+    "codejam_10_21": [
+        [
+            "3\n0 2\n/home/gcj/finals\n/home/gcj/quals\n2 1\n/chicken\n/chicken/egg\n/chicken\n1 3\n/a\n/a/b\n/a/c\n/b/b\n",
+            "Case #1: 4\nCase #2: 0\nCase #3: 4\n"
+        ]
+    ],
+    "codejam_11_32": [
+        [
+            "2\n2 20 8 2 3 5\n1 4 2 2 10 4\n",
+            "Case #1: 54\nCase #2: 20\n"
+        ]
+    ],
+    "codejam_14_13": [
+        [
+            "2\n3\n0 1 2\n3\n2 0 1\n",
+            "Case #1: BAD\nCase #2: GOOD\n"
+        ]
+    ],
+    "codejam_16_31": [
+        [
+            "4\n2\n2 2\n3\n3 2 2\n3\n1 1 2\n3\n2 3 1\n",
+            [
+                "Case #1: AB BA\nCase #2: AA BC C BA\nCase #3: C C AB\nCase #4: BA BB CA\n",
+                "Case #1: AB AB\nCase #2: A A B C A BC\nCase #3: C A BC\nCase #4: B A B A BC\n"
+            ]
+        ]
+    ],
+    "codejam_16_33": [
+        [
+            "4\n1 1 1 10\n1 2 3 2\n1 1 3 2\n1 2 3 1\n",
+            "Case #1: 1\n1 1 1\nCase #2: 4\n1 1 2\n1 2 3\n1 2 1\n1 1 1\nCase #3: 2\n1 1 2\n1 1 1\nCase #4: 2\n1 1 3\n1 2 1\n"
+        ]
+    ],
+    "codejam_14_42": [
+        [
+            "2\n3\n1 2 3\n5\n1 8 10 3 7\n",
+            "Case #1: 0\nCase #2: 1\n"
+        ]
+    ],
+    "codejam_10_01": [
+        [
+            "4\n1 0\n1 1\n4 0\n4 47\n",
+            "Case #1: OFF\nCase #2: ON\nCase #3: OFF\nCase #4: ON\n"
+        ]
+    ],
+    "codejam_14_01": [
+        [
+            "3\n2\n1 2 3 4\n5 6 7 8\n9 10 11 12\n13 14 15 16\n3\n1 2 5 4\n3 11 6 15\n9 10 7 12\n13 14 8 16\n2\n1 2 3 4\n5 6 7 8\n9 10 11 12\n13 14 15 16\n2\n1 2 3 4\n5 6 7 8\n9 10 11 12\n13 14 15 16\n2\n1 2 3 4\n5 6 7 8\n9 10 11 12\n13 14 15 16\n3\n1 2 3 4\n5 6 7 8\n9 10 11 12\n13 14 15 16\n",
+            "Case #1: 7\nCase #2: Bad magician!\nCase #3: Volunteer cheated!\n"
+        ]
+    ],
+    "codejam_08_23": [
+        [
+            "2\n5\n5 1 2 3 4 5\n15\n4 3 4 7 10\n",
+            "Case #1: 1 3 2 5 4\nCase #2: 2 8 13 4\n"
+        ]
+    ],
+    "codejam_15_01": [
+        [
+            "4\n4 11111\n1 09\n5 110011\n0 1\n",
+            "Case #1: 0\nCase #2: 1\nCase #3: 2\nCase #4: 0\n"
+        ]
+    ],
+    "codejam_09_22": [
+        [
+            "3\n115\n1051\n6233\n",
+            "Case #1: 151\nCase #2: 1105\nCase #3: 6323\n"
+        ]
+    ],
+    "codejam_08_22": [
+        [
+            "2\n10 20 5\n10 20 3\n",
+            "Case #1: 9\nCase #2: 7\n"
+        ]
+    ],
+    "codejam_12_51": [
+        [
+            "3\n4\n1 1 1 1\n50 0 20 20\n3\n100 10 1\n0 50 0\n3\n100 80 50\n40 20 80",
+            "Case #1: 0 2 3 1\nCase #2: 1 0 2\nCase #3: 2 0 1\n"
+        ]
+    ],
+    "codejam_15_04": [
+        [
+            "4\n2 2 2\n2 1 3\n4 4 1\n3 2 3\n",
+            "Case #1: GABRIEL\nCase #2: RICHARD\nCase #3: RICHARD\nCase #4: GABRIEL\n"
+        ]
+    ],
+    "codejam_10_43": [
+        [
+            "1\n3\n5 1 5 1\n2 2 4 2\n2 3 2 4\n",
+            "Case #1: 6\n"
+        ]
+    ],
+    "codejam_14_31": [
+        [
+            "5\n1/2\n3/4\n1/4\n2/23\n123/31488\n",
+            "Case #1: 1\nCase #2: 1\nCase #3: 2\nCase #4: impossible\nCase #5: 8\n"
+        ]
+    ],
+    "codejam_09_41": [
+        [
+            "3\n2\n10\n11\n3\n001\n100\n010\n4\n1110\n1100\n1100\n1000\n",
+            "Case #1: 0\nCase #2: 2\nCase #3: 4\n"
+        ]
+    ],
+    "codejam_16_12": [
+        [
+            "1\n3\n1 2 3\n2 3 5\n3 5 6\n2 3 4\n1 2 3\n",
+            "Case #1: 3 4 6\n"
+        ]
+    ],
+    "codejam_16_23": [
+        [
+            "3\n3\nHYDROCARBON COMBUSTION\nQUAIL BEHAVIOR\nQUAIL COMBUSTION\n3\nCODE JAM\nSPACE JAM\nPEARL JAM\n2\nINTERGALACTIC PLANETARY\nPLANETARY INTERGALACTIC\n",
+            "Case #1: 1\nCase #2: 0\nCase #3: 0\n"
+        ]
+    ],
+    "codejam_17_01": [
+        [
+            "3\n---+-++- 3\n+++++ 4\n-+-+- 4\n",
+            "Case #1: 3\nCase #2: 0\nCase #3: IMPOSSIBLE\n"
+        ]
+    ],
+    "codejam_10_32": [
+        [
+            "4\n50 700 2\n19 57 3\n1 1000 2\n24 97 2\n",
+            "Case #1: 2\nCase #2: 0\nCase #3: 4\nCase #4: 2\n"
+        ]
+    ],
+    "codejam_17_03": [
+        [
+            "5\n4 2\n5 2\n6 2\n1000 1000\n1000 1\n",
+            "Case #1: 1 0\nCase #2: 1 0\nCase #3: 1 1\nCase #4: 0 0\nCase #5: 500 499\n"
+        ]
+    ],
+    "codejam_12_32": [
+        [
+            "\n3\n1000.000000 2 3\n0.000000 20.500000\n25.000000 1000.000000\n1.00 5.00 9.81\n50.000000 2 2\n0.000000 0.000000\n100000.000000 100.000000\n1.00 1.01\n10000.000000 3 1\n0.000000 0.000000\n10000.000000 0.100000\n10000.100000 100000.000000\n1.00\n",
+            "\nCase #1:\n44.7213595\n25.000000\n25.0\nCase #2:\n50000.0\n50000.0\nCase #3:\n10140.974143\n"
+        ]
+    ],
+    "codejam_13_02": [
+        [
+            "3\n3 3\n2 1 2\n1 1 1\n2 1 2\n5 5\n2 2 2 2 2\n2 1 1 1 2\n2 1 2 1 2\n2 1 1 1 2\n2 2 2 2 2\n1 3\n1 2 1\n",
+            "Case #1: YES\nCase #2: NO\nCase #3: YES\n"
+        ]
+    ],
+    "codejam_09_03": [
+        [
+            "3\nelcomew elcome to code jam\nwweellccoommee to code qps jam\nwelcome to codejam\n",
+            "Case #1: 0001\nCase #2: 0256\nCase #3: 0000\n"
+        ]
+    ],
+    "codejam_17_21": [
+        [
+            "3\n2525 1\n2400 5\n300 2\n120 60\n60 90\n100 2\n80 100\n70 10\n",
+            "Case #1: 101.000000\nCase #2: 100.000000\nCase #3: 33.333333\n"
+        ]
+    ],
+    "codejam_15_54": [
+        [
+            "5\n8\n0 1 2 3 4 5 6 7\n1 1 1 1 1 1 1 1\n4\n0 1 2 3\n1 3 3 1\n4\n0 1 3 4\n4 4 4 4\n3\n-1 0 1\n1 2 1\n5\n-2 -1 0 1 2\n1 2 2 2 1\n",
+            "Case #1: 1 2 4\nCase #2: 1 1 1\nCase #3: 0 0 1 3\nCase #4: -1 1\nCase #5: -2 1 1\n"
+        ]
+    ],
+    "codejam_16_21": [
+        [
+            "4\nOZONETOWER\nWEIGHFOXTOURIST\nOURNEONFOE\nETHER\n",
+            "Case #1: 012\nCase #2: 2468\nCase #3: 114\nCase #4: 3\n"
+        ]
+    ],
+    "codejam_13_13": [
+        [
+            "1\n2 3 4 4\n9 4 36 1\n1 1 1 1\n",
+            [
+                "Case #1:\n343\n222\n",
+                "Case #1:\n334\n222\n"
+            ]
+        ]
+    ],
+    "codejam_11_01": [
+        [
+            "3\n4 O 2 B 1 B 2 O 4\n3 O 5 O 8 B 100\n2 B 2 B 1\n",
+            "Case #1: 6\nCase #2: 100\nCase #3: 4\n"
+        ]
+    ],
+    "codejam_15_33": [
+        [
+            "4\n1 2 3\n1 2\n1 3 6\n1 2 5\n2 1 3\n3\n1 6 100\n1 5 10 25 50 100\n",
+            "Case #1: 0\nCase #2: 1\nCase #3: 1\nCase #4: 3\n"
+        ]
+    ],
+    "codejam_09_44": [
+        [
+            "2\n3\n20 10 2\n20 20 2\n40 10 3\n3\n20 10 3\n30 10 3\n40 10 3\n",
+            "Case #1: 7.000000\nCase #2: 8.000000\n"
+        ]
+    ],
+    "codejam_12_21": [
+        [
+            "\n4\n2 20 10\n2 10 0\n4 25 25 25 25\n3 24 30 21\n",
+            "\nCase #1:\n33.333333 66.666667\nCase #2:\n0.000000 100.000000\nCase #3:\n25.0 25.0 25.0 25.0\nCase #4:\n34.666667 26.666667 38.666667\n"
+        ]
+    ],
+    "codejam_17_31": [
+        [
+            "4\n2 1\n100 20\n200 10\n2 2\n100 20\n200 10\n3 2\n100 10\n100 10\n100 10\n4 2\n9 3\n7 1\n10 1\n8 4\n",
+            "Case #1: 138230.076757951\nCase #2: 150796.447372310\nCase #3: 43982.297150257\nCase #4: 625.176938064\n"
+        ]
+    ],
+    "codejam_11_03": [
+        [
+            "2\n5\n1 2 3 4 5\n3\n3 5 6\n",
+            "Case #1: NO\nCase #2: 11\n"
+        ]
+    ],
+    "codejam_09_01": [
+        [
+            "3 5 4\nabc\nbca\ndac\ndbc\ncba\n(ab)(bc)(ca)\nabc\n(abc)(abc)(abc)\n(zyx)bc\n",
+            "Case #1: 2\nCase #2: 1\nCase #3: 3\nCase #4: 0\n"
+        ]
+    ],
+    "codejam_11_33": [
+        [
+            "2\n3 2 100\n3 5 7\n4 8 16\n1 20 5 2\n",
+            "Case #1: NO\nCase #2: 10\n"
+        ]
+    ],
+    "codejam_16_51": [
+        [
+            "5\nCCJJ\nCJCJ\nCJJC\nCJJJ\nCCCCCC\n",
+            "Case #1: 20\nCase #2: 10\nCase #3: 20\nCase #4: 15\nCase #5: 30\n"
+        ]
+    ],
+    "codejam_11_43": [
+        [
+            "4\n1\n3\n6\n16\n",
+            "Case #1: 0\nCase #2: 1\nCase #3: 2\nCase #4: 5\n"
+        ]
+    ],
+    "codejam_08_13": [
+        [
+            "2\n5\n2\n",
+            "Case #1: 935\nCase #2: 027\n"
+        ]
+    ],
+    "codejam_13_11": [
+        [
+            "5\n1 9\n1 10\n3 40\n1 1000000000000000000\n10000000000000000 1000000000000000000\n",
+            "Case #1: 1\nCase #2: 2\nCase #3: 3\nCase #4: 707106780\nCase #5: 49\n"
+        ]
+    ],
+    "codejam_16_11": [
+        [
+            "7\nCAB\nJAM\nCODE\nABAAB\nCABCBBABC\nABCABCABC\nZXCASDQWE\n",
+            "Case #1: CAB\nCase #2: MJA\nCase #3: OCDE\nCase #4: BBAAA\nCase #5: CCCABBBAB\nCase #6: CCCBAABAB\nCase #7: ZXCASDQWE\n"
+        ]
+    ],
+    "codejam_10_13": [
+        [
+            "3\n5 5 8 8\n11 11 2 2\n1 6 1 6\n",
+            "Case #1: 0\nCase #2: 1\nCase #3: 20\n"
+        ]
+    ],
+    "codejam_16_54": [
+        [
+            "3\n2 2\n10 00\n11\n3 2\n11 10 00\n01\n4 2\n00 01 10 11\n11\n",
+            "Case #1: ? 10?1\nCase #2: 1?? 0\nCase #3: IMPOSSIBLE\n"
+        ]
+    ],
+    "codejam_14_22": [
+        [
+            "5\n3 4 2\n4 5 2\n7 8 5\n45 56 35\n103 143 88\n",
+            "Case #1: 10\nCase #2: 16\nCase #3: 52\nCase #4: 2411\nCase #5: 14377\n"
+        ]
+    ],
+    "codejam_12_43": [
+        [
+            "\n4\n6\n2 3 4 5 6\n4\n4 4 4\n4\n3 4 4\n4\n4 3 4\n",
+            "\nCase #1: 10 10 10 10 10 2\nCase #2: 10 20 40 80\nCase #3: Impossible\nCase #4: 5 3 6 8\n"
+        ]
+    ],
+    "codejam_13_32": [
+        [
+            "2\n3 4\n-3 4\n",
+            [
+                "Case #1: ENWSEN\nCase #2: ENSWN\n",
+                "Case #1: WEWEWESNSNSNSN\nCase #2: EWEWEWSNSNSNSN\n"
+            ]
+        ]
+    ],
+    "codejam_10_31": [
+        [
+            "2\n3\n1 10\n5 5\n7 7\n2\n1 1\n2 2\n",
+            "Case #1: 2\nCase #2: 0\n"
+        ]
+    ],
+    "codejam_09_32": [
+        [
+            "3\n3\n3 0 -4 0 0 3\n-3 -2 -1 3 0 0\n-3 -1 2 0 3 0\n3\n-5 0 0 1 0 0\n-7 0 0 1 0 0\n-6 3 0 1 0 0\n4\n1 2 3 1 2 3\n3 2 1 3 2 1\n1 0 0 0 0 -1\n0 10 0 0 -10 -1\n",
+            "Case #1: 0.00000000 1.00000000\nCase #2: 1.00000000 6.00000000\nCase #3: 3.36340601 1.00000000\n"
+        ]
+    ],
+    "codejam_11_54": [
+        [
+            "3\n1???\n1\n10??110??00??1000??\n",
+            "Case #1: 1001\nCase #2: 1\nCase #3: 1011110110000100001\n"
+        ]
+    ],
+    "codejam_13_42": [
+        [
+            "3\n3 4\n3 5\n3 3\n",
+            "Case #1: 0 6\nCase #2: 2 6\nCase #3: 0 4\n"
+        ]
+    ],
+    "codejam_10_22": [
+        [
+            "3\n5 3 10 5\n0 2 5 6 7\n1 1 1 1 4\n5 3 10 5\n0 2 3 5 7\n2 1 1 1 4\n5 3 10 5\n0 2 3 4 7\n2 1 1 1 4\n",
+            "Case #1: 0\nCase #2: 2\nCase #3: IMPOSSIBLE\n"
+        ]
+    ],
+    "codejam_10_02": [
+        [
+            "3\n3 26000000 11000000 6000000\n3 1 10 11\n2 800000000000000000001 900000000000000000001\n",
+            "Case #1: 4000000\nCase #2: 0\nCase #3: 99999999999999999999\n"
+        ]
+    ],
+    "codejam_08_31": [
+        [
+            "2\n3 2 6\n8 2 5 2 4 9\n3 9 26\n1 1 1 100 100 1 1 1 1 1 1 1 1 1 1 1 1 10 11 11 11 11 1 1 1 100\n",
+            "Case #1: 47\nCase #2: 397"
+        ]
+    ],
+    "codejam_15_12": [
+        [
+            "3\n2 4\n10 5\n3 12\n7 7 7\n3 8\n4 2 1\n",
+            "Case #1: 1\nCase #2: 3\nCase #3: 1\n"
+        ]
+    ],
+    "codejam_12_12": [
+        [
+            "\n4\n2\n0 1\n0 2\n3\n2 2\n0 0\n4 4\n1\n1 1\n5\n0 5\n0 1\n1 1\n4 7\n5 6\n",
+            "\nCase #1: 3\nCase #2: 3\nCase #3: Too Bad\nCase #4: 6\n"
+        ]
+    ],
+    "codejam_16_02": [
+        [
+            "5\n- \n-+\n+-\n+++\n--+-\n",
+            "Case #1: 1\nCase #2: 1\nCase #3: 2\nCase #4: 0\nCase #5: 3\n"
+        ]
+    ],
+    "codejam_14_12": [
+        [
+            "3\n3\n2 1\n1 3\n7\n4 5\n4 2\n1 2\n3 1\n6 4\n3 7\n4\n1 2\n2 3\n3 4\n",
+            "Case #1: 0\nCase #2: 2\nCase #3: 1\n"
+        ]
+    ],
+    "codejam_16_04": [
+        [
+            "5\n2 3 2\n1 1 1\n2 1 1\n2 1 2\n3 2 3\n",
+            [
+                "Case #1: 2\nCase #2: 1\nCase #3: IMPOSSIBLE\nCase #4: 1 2\nCase #5: 2 6\n",
+                "Case #1: 3\nCase #2: 1\nCase #3: IMPOSSIBLE\nCase #4: 1 2\nCase #5: 4 3\n"
+            ]
+        ]
+    ],
+    "codejam_11_41": [
+        [
+            "3\n10 1 4 1 2\n4 6 1\n6 9 2\n12 1 2 4 1\n6 12 1\n20 1 3 20 5\n0 4 5\n4 8 4\n8 12 3\n12 16 2\n16 20 1\n",
+            "Case #1: 4.000000\nCase #2: 5.500000\nCase #3: 3.538095238\n"
+        ]
+    ],
+    "codejam_12_02": [
+        [
+            "4\n3 1 5 15 13 11\n3 0 8 23 22 21\n2 1 1 8 0\n6 2 8 29 20 8 18 18 21",
+            "\nCase #1: 3\nCase #2: 2\nCase #3: 1\nCase #4: 3\n"
+        ]
+    ],
+    "codejam_14_51": [
+        [
+            "8\n1 1 1 1 1\n10 17 1 7 1\n2 100 100 200 1\n20 17 3 23 100\n10 999999 999999 1000000 1000000\n2 1 1 1 1\n3 1 99 100 1\n999999 1000000 999999 1000000 1000000\n",
+            "Case #1: 0.0000000000\nCase #2: 0.6111111111\nCase #3: 0.0098039216\nCase #4: 0.6471920290\nCase #5: 0.6000006000\nCase #6: 0.5000000000\nCase #7: 0.0291262136\nCase #8: 0.6666666667\n"
+        ]
+    ],
+    "codejam_09_13": [
+        [
+            "2\n2 1\n3 2\n",
+            "Case #1: 3.0000000\nCase #2: 2.5000000\n"
+        ]
+    ],
+    "codejam_14_52": [
+        [
+            "2\n20 40 3\n100 100\n20 100\n60 100\n20 60 3\n80 100\n80 200\n120 300\n",
+            "Case #1: 300\nCase #2: 500\n"
+        ]
+    ],
+    "codejam_10_23": [
+        [
+            "2\n5\n6\n",
+            "Case #1: 5\nCase #2: 8\n"
+        ]
+    ],
+    "codejam_12_01": [
+        [
+            "\n3\nejp mysljylc kd kxveddknmc re jsicpdrysi\nrbcpc ypc rtcsra dkh wyfrepkym veddknkmkrkcd\nde kr kd eoya kw aej tysr re ujdr lkgc jv\n",
+            "\nCase #1: our language is impossible to understand\nCase #2: there are twenty six factorial possibilities\nCase #3: so it is okay if you want to just give up\n"
+        ]
+    ],
+    "codejam_11_22": [
+        [
+            "2\n3 2\n0 1\n3 2\n6 1\n2 2\n0 3\n1 1\n",
+            "Case #1: 1.0\nCase #2: 2.5\n"
+        ]
+    ],
+    "codejam_14_21": [
+        [
+            "5\n2\nmmaw\nmaw\n2\ngcj\ncj\n3\naaabbb\nab\naabb\n2\nabc\nabc\n3\naabc\nabbc\nabcc\n",
+            "Case #1: 1\nCase #2: Fegla Won\nCase #3: 4\nCase #4: 0\nCase #5: 3\n"
+        ]
+    ]
+}

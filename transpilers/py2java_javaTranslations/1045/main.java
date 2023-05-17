@@ -1,0 +1,10 @@
+import sys;
+import itertools;
+var f = sys . stdin;
+var g = itertools . accumulate;
+var n = int ( f . readline ( ) );
+var p = list ( map ( int , f . readline ( ) . split ( ) ) );
+var c = f . readline ( );
+var v = { - x if y == 'B' else x for x , y in zip ( p , c ) };
+var s = sum ( p { i } if c { i } == 'B' else 0 for i in range ( n ) );
+System.out.println ( s + max ( 0 , max ( g ( v ) ) , max ( g ( v { : : - 1 } ) ) ) );
