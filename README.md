@@ -6,7 +6,7 @@
 
 ## AVATAR-TC Dataset
 
-The AVATAR-TC dataset (with all Java-Python code pairs and test-cases) is available at: `./AVATAR-TC/`
+The AVATAR-TC dataset (with all Java-Python code pairs and test-cases) is available at: `./AVATAR-TC/` 
 
 ## Training \& Evaluating the Models
 
