@@ -6,11 +6,11 @@
 
 ## AVATAR-TC Dataset
 
-The AVATAR-TC dataset (with all Java-Python code pairs and test-cases) is available at: `./AVATAR-TC_data/`
+The AVATAR-TC dataset (with all Java-Python code pairs and test-cases) is available at: `./AVATAR-TC/`
 
 ## Training \& Evaluating the Models
 
-All codes are implemented in Pytorch Lightning and supports multi-GPU as well as multi-node training. During our experimentation, we tried on two compute nodes, each comprising of four NVIDIA V100 GPUs with 32GB memory and six CPU cores per GPU. This could fit a batch size of $8\times 8 = 64$ for the Stage-I training and $4\times 8 = 32$ for the Stage-II training
+All codes are implemented in Pytorch Lightning and supports multi-GPU as well as multi-node training. During our experimentation, we tried on two compute nodes, each comprising of four NVIDIA V100 GPUs with 32GB memory and six CPU cores per GPU. This could fit a batch size of 8x8 = 64 for the Stage-I training and 4x8 = 32 for the Stage-II training
 
 1. Change the appropriate hyperparameters, number of compute nodes, number of GPUs, batch size, src language, target language, etc. in the shell scripts.
 2. (Stage-I) Run `./run_script_TRAIN.sh` for training the Java-to-Python (J2P) and Python-to-Java (P2J) LLMs
