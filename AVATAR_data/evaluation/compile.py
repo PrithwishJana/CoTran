@@ -73,6 +73,8 @@ def check_python(args):
     print('Success - {}, Errors - {} [Syntax - {}, Indent - {}]'.format(
         success, error, num_syntax_error, num_indent_error)
     )
+    totalProgs = len(programs)
+    print (f"CompAcc: {success}/{totalProgs} =", (success * 100.0) / totalProgs, "%")
     # print ("Errors in line nos.:", errLines)
 
 
@@ -138,6 +140,8 @@ def check_java(args):
         shutil.rmtree(folderNm, ignore_errors=True)
 
     print('Success - {}, Errors - {} [Total - {}]'.format(success, error, num_errors))
+    totalProgs = len(programs)
+    print (f"CompAcc: {success}/{totalProgs} =", (success * 100.0) / totalProgs, "%")
     # print ("Errors in line nos.:", errLines)
 
 

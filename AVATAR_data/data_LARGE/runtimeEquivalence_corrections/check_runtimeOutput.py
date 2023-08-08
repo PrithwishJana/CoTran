@@ -264,6 +264,7 @@ def check_runtimeOut(args, programs, ids, testCases_dict):
     print('Success-RuntimeEq - {}, TotalChecked-RuntimeEq - {}, Total-RuntimeEq - {}'.format(
         num_matches, num_total_checked, num_total)
     )
+    print (f"RunEqAcc: {num_matches}/{num_total_checked} =", (num_matches * 100.0) / num_total_checked, "%")
     print ("matches_bySource", matches_bySource)
     print ("totalChecked_bySource", totalChecked_bySource)
 
