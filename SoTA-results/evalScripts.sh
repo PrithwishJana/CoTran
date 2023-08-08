@@ -9,9 +9,9 @@ module load mono/6.12.0.122
 source ~/cotran/bin/activate
 export PYTHONPATH="${PYTHONPATH}:${PWD}/AVATAR_data"
 #------------------------------------
-SOURCE=${2:-python}
-TARGET=${3:-java}
-MODEL=${4:-codebert}
+SOURCE=${2:-java}
+TARGET=${3:-python}
+MODEL=${4:-graphcodebert}
 
 references=./AVATAR-TC/test.java-python.${TARGET}
 predictions=./SoTA-results/${MODEL}-${SOURCE}-${TARGET}.${TARGET}
