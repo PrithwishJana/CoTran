@@ -11,7 +11,7 @@ export PYTHONPATH="${PYTHONPATH}:${PWD}/AVATAR_data"
 #------------------------------------
 SOURCE=${2:-python}
 TARGET=${3:-java}
-MODEL=${4:-codet5}
+MODEL=${4:-zeroshotTranscoder}
 
 references=./AVATAR-TC/test.java-python.${TARGET}
 predictions=./SoTA-results/${MODEL}-${SOURCE}-${TARGET}.${TARGET}

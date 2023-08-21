@@ -1,2 +1,9 @@
 junk/*
 __pycache__/
+AVATAR-TC/plbart-bin/*
+AVATAR-TC/test.java-python.spm.java
+AVATAR-TC/test.java-python.spm.python
+AVATAR-TC/train.java-python.spm.java
+AVATAR-TC/train.java-python.spm.python
+AVATAR-TC/valid.java-python.spm.java
+AVATAR-TC/valid.java-python.spm.python
