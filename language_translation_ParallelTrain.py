@@ -486,6 +486,12 @@ class CodeTranslationDataModule(pl.LightningDataModule):
         df_tokenized_val.to_pickle(os.path.join(self.writeDir, "df_tokenized_val.pkl"))
         df_tokenized_test.to_pickle(os.path.join(self.writeDir, "df_tokenized_test.pkl"))
 
+        df_tokenized_train.to_csv(os.path.join(self.writeDir, "df_tokenized_train.csv"), 
+                                            encoding='utf-8')
+        df_tokenized_val.to_csv(os.path.join(self.writeDir, "df_tokenized_val.csv"), 
+                                            encoding='utf-8')
+        df_tokenized_test.to_csv(os.path.join(self.writeDir, "df_tokenized_test.csv"), 
+                                            encoding='utf-8')                                            
 
     def setup(self, stage = None):
         if (stage == "fit") or (stage is None):

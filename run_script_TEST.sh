@@ -1,6 +1,17 @@
 #!/bin/bash
 
-OUT_FOLD="exptResults/2023-04-29_22-28-09-289514800-6295"  # CHANGE AS PER FOLDER TO TEST ON
+#SBATCH --nodes=2                  #keep 1 for testing
+#SBATCH --gpus-per-node=v100l:4    #keep 1 for testing
+#SBATCH --ntasks-per-node=4        #same as number of GPUs per node
+#SBATCH --cpus-per-task=6   # maximum CPU cores per GPU request: 6 on Cedar, 16 on Graham.
+#SBATCH --mem=128000M        # Request the full memory of the node # memory per node, 256000M
+#SBATCH --account=def-vganesh
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=piyush.jha@uwaterloo.ca
+#SBATCH --time=0-2:00      # time (DD-HH:MM)
+#SBATCH --output=exptResults/run-%N-%j.out  # %N for node name, %j for jobID
+
+OUT_FOLD="exptResults/testP2J"  # CHANGE AS PER FOLDER TO TEST ON
 echo "Writing output to folder $OUT_FOLD"
 
 
@@ -42,16 +53,16 @@ export PYTHONPATH="${PYTHONPATH}:${PWD}/AVATAR_data"
 
 srun python ./language_translation_ParallelTrain.py \
   --num_epochs 0 \
-  --src_lang "java" \
-  --dest_lang "python" \
+  --src_lang "python" \
+  --dest_lang "java" \
   --batch_size 8 \
   --num_nodes 2 \
   --num_gpus_per_node 4 \
   --num_cpu_workers 6 \
   --writeDir "$OUT_FOLD" \
-  --model_name "java2py_W_CF0.25_TEST" \
-  --model_tag "java2python" \
-  --model_notes "for java to python translation with pretrained CodeT5-base model with Compiler feedback, wt 0.25,...only testing" \
+  --model_name "py2java_W_CF0.25_TEST" \
+  --model_tag "python2java" \
+  --model_notes "for python to java translation with pretrained CodeT5-base model with Compiler feedback, wt 0.25,...only testing" \
   > "$OUT_FOLD/outTEST.txt" 2>&1
 
 echo "Evaluation end"

@@ -1,5 +1,14 @@
 #!/bin/bash
 
+#SBATCH --nodes=2                  #keep 1 for testing
+#SBATCH --gpus-per-node=v100l:4    #keep 1 for testing
+#SBATCH --ntasks-per-node=4        #same as number of GPUs per node
+#SBATCH --cpus-per-task=6   # maximum CPU cores per GPU request: 6 on Cedar, 16 on Graham.
+#SBATCH --mem=128000M        # Request the full memory of the node # memory per node, 256000M
+#SBATCH --account=def-vganesh
+#SBATCH --time=1-0:00      # time (DD-HH:MM)
+#SBATCH --output=exptResults/run-%N-%j.out  # %N for node name, %j for jobID
+
 # Define a timestamp function
 timestamp() {
   date +"%Y-%m-%d_%H-%M-%S-%N" # current time

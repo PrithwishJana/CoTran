@@ -1,7 +1,5 @@
 #!/bin/sh
 
-#https://symflower.com/local/install
-
 set -eu
 
 USE_SUDO=""
@@ -12,7 +10,7 @@ USE_SUDO=""
 export OS=${OS:-"$(uname -s | awk '{print tolower($0)}')"}
 export ARCH=${ARCH:-"$(uname -m)"}
 
-DESTINATION_PATH=./symflower_related
+DESTINATION_PATH=.
 DESTINATION_BINARY_PATH=${DESTINATION_BINARY_PATH:-"$DESTINATION_PATH/symflower"}
 
 echo "Downloading and installing the latest binary as root to $DESTINATION_BINARY_PATH:"
@@ -26,7 +24,7 @@ $USE_SUDO chmod +x "$DESTINATION_BINARY_PATH"
 
 echo "Verifying the installation:"
 
-SYMFLOWER_WHICH_PATH=$(which ./symflower_related/symflower)
+SYMFLOWER_WHICH_PATH=$(which symflower)
 if [ $? -ne 0 ]; then
 	echo "ERROR: \"symflower\" binary cannot be found in the PATH environment variable."
 	SYMFLOWER_WHICH_PATH=$DESTINATION_BINARY_PATH
@@ -37,4 +35,3 @@ fi
 "$DESTINATION_BINARY_PATH" --version
 
 echo
-echo "You can now generate unit tests with \"symflower\"!"

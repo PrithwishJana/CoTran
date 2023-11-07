@@ -127,6 +127,7 @@ def compute_JavaError(oneLineProg_chunk, javalexer, jProcessor, tokenizedFileDir
         if "public class" in decodedfile:
             tokens = decodedfile.split("public class", 1)
             if len(tokens) == 2 and len(tokens[1]) > 0:
+                #print (progIndx, tokens)
                 public_class_name = tokens[1].split()[0]
         elif "public final class" in decodedfile:
             tokens = decodedfile.split("public final class", 1)

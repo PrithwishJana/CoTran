@@ -8,3 +8,10 @@ AVATAR-TC/train.java-python.spm.java
 AVATAR-TC/train.java-python.spm.python
 AVATAR-TC/valid.java-python.spm.java
 AVATAR-TC/valid.java-python.spm.python
+FINETUNED_MODELS
+RL_results
+exptResults
+exptResults_RL
+javac*args
+*.zip
+wandb
