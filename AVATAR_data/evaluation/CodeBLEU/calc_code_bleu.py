@@ -80,10 +80,12 @@ def get_codebleu(
 
     # preprocess inputs
     if txt_ref:
-        references = [[x.strip()] for x in open(ref, 'r', encoding='utf-8').readlines()]
+        references = [[x.encode().decode("unicode-escape").strip().replace("\n", "\\n")] for \
+                        x in open(ref, 'r', encoding='utf-8').readlines()]
     else:
         references = [json.loads(x.strip())[lang] for x in open(ref, 'r', encoding='utf-8').readlines()]
-    hypothesis = [x.strip() for x in open(hyp, 'r', encoding='utf-8').readlines()]
+    hypothesis = [x.encode().decode("unicode-escape").strip().replace("\n", "\\n") for \
+                        x in open(hyp, 'r', encoding='utf-8').readlines()]
 
     assert len(hypothesis) == len(references)
 

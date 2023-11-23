@@ -45,6 +45,7 @@ def corpus_dataflow_match(references, candidates, lang):
     match_count = 0
     total_count = 0
 
+    #print ("len(candidates)", len(candidates))
     for i in range(len(candidates)):
         references_sample = references[i]
         candidate = candidates[i]
@@ -70,7 +71,10 @@ def corpus_dataflow_match(references, candidates, lang):
                     if dataflow in normalized_cand_dfg:
                         match_count += 1
                         normalized_cand_dfg.remove(dataflow)
-    score = match_count / total_count
+    if total_count > 0:
+        score = match_count / total_count
+    else:
+        score = 0
     return score
 
 

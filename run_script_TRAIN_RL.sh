@@ -13,6 +13,8 @@
 #salloc --nodes=1 --gpus-per-node=v100l:4 --ntasks=1 --cpus-per-task=6 --mem=64000M --account=def-vganesh --time=0-3:00
 #salloc --gres=gpu:v100l:1 --cpus-per-task=6 --mem=32000M --account=def-vganesh --time=0-3:00
 #salloc --nodes=1 --gpus-per-node=v100l:4 --ntasks-per-node=4 --cpus-per-task=6 --mem=64000M --account=def-vganesh --time=0-3:00
+#salloc --nodes=1 --gpus-per-node=v100l:1 --ntasks-per-node=1 --cpus-per-task=6 --mem=64000M --account=def-vganesh --time=0-3:00
+#salloc --nodes=1 --gpus-per-node=v100l:2 --ntasks-per-node=2 --cpus-per-task=6 --mem=64000M --account=def-vganesh --time=0-3:00
 
 # Define a timestamp function
 timestamp() {
@@ -35,15 +37,19 @@ export PYTHONPATH="${PYTHONPATH}:${PWD}/AVATAR_data"
 #/home/pjana/.cache/huggingface/accelerate/default_config.yaml
 #srun --jobid 17106142  --pty watch -n 2 nvidia-smi
 
-accelerate launch --multi_gpu --num_machines 1  --num_processes 4 ./language_translation_RL.py \
+#accelerate launch --multi_gpu --num_machines 1  --num_processes 2 language_translation_RL_CF_SF_v2.py \
+#python language_translation_RL_CF_SF_v2.py \
+accelerate launch --multi_gpu --num_machines 1  --num_processes 4 language_translation_RL_CF_SF_v2.py \
   --num_epochs 100 \
   --src_lang "python" \
   --dest_lang "java" \
   --train_batch_size 512 \
   --test_batch_size 128 \
   --writeDir "$OUT_FOLD" \
-  --model_name "python2java_RL" \
+  --model_name "python2java_RL_CFmodified" \
   --model_path "./FINETUNED_MODELS" \
   > "$OUT_FOLD/out.txt" 2>&1
+
+#batch 512, 128
 
 echo "Evaluation end"

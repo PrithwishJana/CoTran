@@ -10,7 +10,7 @@ import pandas as pd
 from datasets import Dataset
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from language_translation_RLrewards import calculateCompilerReward
+from language_translation_RLrewards import calculateCompilerReward, calculateRuntimeReward
 from accelerate import Accelerator
 
 def setSeed(seed):
@@ -65,7 +65,7 @@ def loadModelFromCkpt(model_path, tokenizer):
     return model
 
 #================== DATASET ======================
-def getDataset(path_dict, tokenizer):
+def getDataset(path_dict, tokenizer, srcLang = "python"):
     path_AVATAR_training_data_source = path_dict['train_source']
     path_AVATAR_training_data_reference = path_dict['train_ref']
     path_AVATAR_training_data_id = path_dict['train_id']
@@ -76,9 +76,18 @@ def getDataset(path_dict, tokenizer):
     path_AVATAR_test_data_reference = path_dict['test_ref']
     path_AVATAR_test_data_id = path_dict['test_id']
 
+    if (srcLang == "java"):
+        path_AVATAR_training_data_source, path_AVATAR_training_data_reference = \
+                        path_AVATAR_training_data_reference, path_AVATAR_training_data_source
+        path_AVATAR_validate_data_source, path_AVATAR_validate_data_reference = \
+                        path_AVATAR_validate_data_reference, path_AVATAR_validate_data_source
+        path_AVATAR_test_data_source, path_AVATAR_test_data_reference = \
+                        path_AVATAR_test_data_reference, path_AVATAR_test_data_source
+
     #------------------ READING DATA ------------------
     src_training_data = []
     dest_training_data = []
+    ids_training = []
     src_validate_data = []
     dest_validate_data = []
     ids_validate = []
@@ -104,8 +113,17 @@ def getDataset(path_dict, tokenizer):
             dest_training_data.append(line.strip().replace("\t", "    "))
         f.close()
 
+    with open(path_AVATAR_training_data_id, 'r') as f:
+        while True:
+            line = f.readline()
+            if not line:
+                break
+            ids_training.append(line.strip().replace("\t", "    "))
+        f.close()
+
     assert len(src_training_data) == len(dest_training_data)
-    training_dataset = list(zip(src_training_data, dest_training_data))
+    assert len(dest_training_data) == len(ids_training)
+    training_dataset = list(zip(src_training_data, dest_training_data, ids_training))
 
     with open(path_AVATAR_validate_data_source, 'r') as f:
         while True:
@@ -173,8 +191,8 @@ def getDataset(path_dict, tokenizer):
 
     tokenized_train = [(tokenize_code(sample[0], tokenizer).flatten(),
                         tokenize_code(sample[1], tokenizer).flatten(),
-                         0) for 
-                    sample in training_dataset[:20000]] #NOTE: put 0 instead of  sample[2], to reduce memory
+                         sample[2]) for 
+                    sample in training_dataset[:20000]] #NOTE: put 0 instead of sample[2], to reduce memory
     #NOTE: dataset reduced to 20k
     tokenized_val = [(tokenize_code(sample[0], tokenizer).flatten(),
                         tokenize_code(sample[1], tokenizer).flatten(),
@@ -215,10 +233,13 @@ def getDataset(path_dict, tokenizer):
 
     return dataset_train_val_test[0], dataset_train_val_test[1], dataset_train_val_test[2]
 
-def test(dataloader, model, kwargs, tokenizer, epoch, device):
+def test(dataloader, model, kwargs, tokenizer, epoch, device, targetLang = "java"):
     testOut = []
     for test_batch in tqdm(dataloader):
-        src_id_mat = test_batch["input_ids_src"]
+        if targetLang == "java":
+            src_id_mat = test_batch["input_ids_src"]
+        else:
+            src_id_mat = test_batch["input_ids_tgt"]
         print ("src_id_mat", src_id_mat)
         print ("src_id_mat.shape", src_id_mat.shape)
         #attention_mask_mat = src_id_mat.ne(tokenizer.pad_token_id)
@@ -229,7 +250,7 @@ def test(dataloader, model, kwargs, tokenizer, epoch, device):
         testOut.extend(test_pred_list)
     #save
     #print (testOut)
-    with open(os.path.join(args.writeDir, "result_ep{}_dev{}.txt".format(epoch, str(device))), 
+    with open(os.path.join(args.writeDir, "result_ep{}_dev{}.{}".format(epoch, str(device), targetLang)), 
                 'w', encoding = 'utf-8') as f:
         for line in testOut:
             f.write(f"{line}\n")
@@ -247,15 +268,22 @@ if __name__ == '__main__':
     fwdTok_LoadPath = os.path.join(args.model_path, 
                             args.src_lang + "2" + args.dest_lang, "tokenizer")
     fwdTokenizer = loadTokenizer(fwdTok_LoadPath)
-    #print ("TOK:\n", fwdTokenizer)
+
+    bkwdTok_LoadPath = os.path.join(args.model_path, 
+                            args.dest_lang + "2" + args.src_lang, "tokenizer")
+    bkwdTokenizer = loadTokenizer(bkwdTok_LoadPath)
 
     #--------------- INITIALIZING MODEL ----------------
     #device_map = {"": Accelerator().local_process_index}
     fwdModel_LoadPath = os.path.join(args.model_path, 
                             args.src_lang + "2" + args.dest_lang, "bestModel.ckpt")
-    fwdModel = loadModelFromCkpt(fwdModel_LoadPath, fwdTokenizer) #, device_map
+    fwdModel = loadModelFromCkpt(fwdModel_LoadPath, fwdTokenizer)
     fwdModel_ref = create_reference_model(fwdModel)
-    #print (fwdModel)
+
+    bkwdModel_LoadPath = os.path.join(args.model_path, 
+                            args.dest_lang + "2" + args.src_lang, "bestModel.ckpt")
+    bkwdModel = loadModelFromCkpt(bkwdModel_LoadPath, bkwdTokenizer)
+    bkwdModel_ref = create_reference_model(bkwdModel)
 
     #--------------- INITIALIZING DATASET ----------------
     pathDict =  {
@@ -304,39 +332,46 @@ if __name__ == '__main__':
                             'test_id': current_repo + '/AVATAR_data/data_SMALL/test.java-python.id'                          
                             }
                 }
-    fwdDataset_train_val_test = getDataset(pathDict[args.src_lang + "2" + args.dest_lang], 
+
+    dataset_train_val_test = getDataset(pathDict[args.src_lang + "2" + args.dest_lang], 
                                         fwdTokenizer) # + "_debug"
-    tester_dataloader = DataLoader(fwdDataset_train_val_test[2], batch_size = args.test_batch_size)
-    train_dataloader = DataLoader(fwdDataset_train_val_test[0], batch_size = args.train_batch_size)
-    print (fwdDataset_train_val_test)
+    tester_dataloader = DataLoader(dataset_train_val_test[2], batch_size = args.test_batch_size)
+    train_dataloader = DataLoader(dataset_train_val_test[0], batch_size = args.train_batch_size)
 
     #--------------- RL ----------------
-    ppo_config = PPOConfig(
+    fwdPPO_config = PPOConfig(
         steps=20000, learning_rate=1.41e-5, remove_unused_columns=False, 
         batch_size = args.train_batch_size, log_with="wandb") #, log_with="wandb" NOTE!!!!!!!!!!!!!!
 
-    print ("dataset len", len(fwdDataset_train_val_test[0]))
-
-    ppo_trainer = PPOTrainer(config = ppo_config, 
+    fwdPPO_trainer = PPOTrainer(config = fwdPPO_config, 
                                 model = fwdModel, 
                                 ref_model = fwdModel_ref, 
                                 tokenizer = fwdTokenizer
                             ) #TODO: data_collator=collator needed here????, 
                             #dataset = fwdDataset_train_val_test[0]
 
-    print ("ppo_trainer.dataloader len", len(train_dataloader))
+    bkwdPPO_config = PPOConfig(
+        steps=20000, learning_rate=1.41e-5, remove_unused_columns=False, 
+        batch_size = args.train_batch_size, log_with="wandb") #, log_with="wandb" NOTE!!!!!!!!!!!!!!
+
+    bkwdPPO_trainer = PPOTrainer(config = bkwdPPO_config, 
+                                model = bkwdModel, 
+                                ref_model = bkwdModel_ref, 
+                                tokenizer = bkwdTokenizer
+                            ) #TODO: data_collator=collator needed here????, 
+                            #dataset = fwdDataset_train_val_test[0]
 
     # Multi-GPU can be used using https://huggingface.co/docs/trl/main/en/customization
-    if ppo_trainer.accelerator.num_processes == 1:
+    if fwdPPO_trainer.accelerator.num_processes == 1:
         device = 0 if torch.cuda.is_available() else "cpu"  # to avoid a `pipeline` bug
     else:
-        device = ppo_trainer.accelerator.device
+        device = fwdPPO_trainer.accelerator.device
 
-    train_dataloader = ppo_trainer.accelerator.prepare(train_dataloader)
+    train_dataloader = fwdPPO_trainer.accelerator.prepare(train_dataloader)
 
     print ("DEVICE", device)
 
-    generation_kwargs = {
+    fwd_generation_kwargs = {
         "min_length": -1, # don't ignore the EOS token (see above)
         "top_k": 0.0, # no top-k sampling
         "top_p": 1.0, # no nucleus sampling
@@ -344,23 +379,34 @@ if __name__ == '__main__':
         "pad_token_id": fwdTokenizer.pad_token_id, # most decoder models don't have a padding token - use EOS token instead
         "max_new_tokens": 750
     }
+
+    bkwd_generation_kwargs = {
+        "min_length": -1, # don't ignore the EOS token (see above)
+        "top_k": 0.0, # no top-k sampling
+        "top_p": 1.0, # no nucleus sampling
+        "do_sample": True, # yes, we want to sample
+        "pad_token_id": bkwdTokenizer.pad_token_id, # most decoder models don't have a padding token - use EOS token instead
+        "max_new_tokens": 750,
+        "bad_words_ids": [[32116], [32117], [32118]]
+    }
     #"max_new_tokens": 32, # specify how many tokens you want to generate at most
     #"max_length": 750 (dauntless-planet-49)
 
-    test_kwargs = {
+    fwd_test_kwargs = {
         "do_sample": False,
         "max_new_tokens": 750
     }
 
-    if args.dest_lang == "java":
-        generation_kwargs["bad_words_ids"] = [[32116], [32117], [32118]]
-        test_kwargs["bad_words_ids"] = [[32116], [32117], [32118]]
+    bkwd_test_kwargs = {
+        "do_sample": False,
+        "max_new_tokens": 750,
+        "bad_words_ids": [[32116], [32117], [32118]]
+    }
 
-    #test(tester_dataloader, fwdModel, test_kwargs, fwdTokenizer, "init", device)
+    #testing
+    test(tester_dataloader, fwdModel, fwd_test_kwargs, fwdTokenizer, "init", device, "java")
+    test(tester_dataloader, bkwdModel, bkwd_test_kwargs, bkwdTokenizer, "init", device, "python")
     #UNCOMMENT LATER
-
-
-
 
     #f.write(f"{line}\n")
     #UnicodeEncodeError: 'ascii' codec can't encode character '\u2581' in position 1015: ordinal not in range(128)
@@ -369,44 +415,54 @@ if __name__ == '__main__':
         #TODO: where to set bs
         for batch in tqdm(train_dataloader):
             #print ("bbatch", batch)
-            cotran = dict()
             src_id_mat = batch["input_ids_src"] #--> torch.Size([8, 512])
-            #attention_mask_mat = src_id_mat.ne(fwdTokenizer.pad_token_id)
-
-            #print ("src_id_mat", src_id_mat)
-            #print ("src_id_mat.shape", src_id_mat.shape) 
+            probIDs = batch["probID"]
 
             src_id_list = list(src_id_mat)
-            #attention_mask_list = list(attention_mask_mat)
-            #--> list of len 8, each elem is a torch array of size 512
-            # these are the tokenized input to be fed to the CodeT5-model
             
-            #print ("src_id_list", src_id_list)
-            #print ("src_id_list.shape", len(src_id_list), src_id_list[0].shape) 
-            
-            tgtPred_id_list = ppo_trainer.generate(src_id_list, 
-                                                    **generation_kwargs) #attention_mask = attention_mask_list,
-            #--> list of len 8, each elem is a torch array of size 512
-            # these are the tokenized predicted output from the CodeT5-model
-
-            #print ("tgtPred_id_list", tgtPred_id_list)
-            #print ("tgtPred_id_list.shape", tgtPred_id_list.shape)
+            tgtPred_id_list = fwdPPO_trainer.generate(src_id_list, 
+                                                    **fwd_generation_kwargs) 
 
             tgtPred_list = fwdTokenizer.batch_decode(tgtPred_id_list, skip_special_tokens = True,
                                             clean_up_tokenization_spaces = False)
 
-            #print ("tgtPred_list", tgtPred_list)
-
-            # Calculate reward
-            rewards = calculateCompilerReward(tgtPred_list, args.dest_lang, 
+            # Calculate fwd CF ---------
+            fwdCompileRewards = calculateCompilerReward(tgtPred_list, args.dest_lang, 
                                             args.writeDir, str(tgtPred_id_list[0].get_device()))
-            #rewards = [torch.tensor(1.0) for i in range(args.batch_size)]
+            #---------
+
+            srcPred_id_list = bkwdPPO_trainer.generate(tgtPred_id_list, 
+                                                    **bkwd_generation_kwargs) 
+
+            srcPred_list = bkwdTokenizer.batch_decode(srcPred_id_list, skip_special_tokens = True,
+                                            clean_up_tokenization_spaces = False)
+
+            # Calculate bkwd CF ---------
+            bkwdCompileRewards = calculateCompilerReward(srcPred_list, args.src_lang, 
+                                            args.writeDir, str(srcPred_id_list[0].get_device()))
+            #---------
+
+            # Calculate SF ---------
+            fwdRuntimeRewards = calculateRuntimeReward(tgtPred_list, args.dest_lang, probIDs,
+                                            fwdCompileRewards,
+                                            args.writeDir, str(tgtPred_list[0].get_device()))
+            src_list = fwdTokenizer.batch_decode(src_id_list, skip_special_tokens = True,
+                                            clean_up_tokenization_spaces = False)
+            bkwdRuntimeRewards = calculateRuntimeReward(srcPred_list, args.src_lang, probIDs,
+                                            bkwdCompileRewards,
+                                            args.writeDir, str(srcPred_id_list[0].get_device()))
+            #---------
 
             #### Run PPO step
-            stats = ppo_trainer.step(src_id_list, tgtPred_id_list, rewards) # train using PPO
-            ppo_trainer.log_stats(stats, batch, rewards) # wandb integrated
-    
+            fwdStats = fwdPPO_trainer.step(src_id_list, tgtPred_id_list, 
+                                            fwdCompileRewards + fwdRuntimeRewards * 10) # train using PPO
+            fwdPPO_trainer.log_stats(fwdStats, batch, fwdCompileRewards + fwdRuntimeRewards * 10) # wandb integrated
+            bkwdStats = bkwdPPO_trainer.step(tgtPred_id_list, srcPred_id_list, 
+                                            bkwdCompileRewards + bkwdRuntimeRewards * 10) # train using PPO
+            bkwdPPO_trainer.log_stats(bkwdStats, batch, bkwdCompileRewards + bkwdRuntimeRewards * 10)
+
         #testing
-        test(tester_dataloader, fwdModel, test_kwargs, fwdTokenizer, epoch, device)
+        test(tester_dataloader, fwdModel, fwd_test_kwargs, fwdTokenizer, epoch, device, "java")
+        test(tester_dataloader, bkwdModel, bkwd_test_kwargs, bkwdTokenizer, epoch, device, "python")
 
         

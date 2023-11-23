@@ -138,9 +138,15 @@ def getJavaOutput(folderNm, oneLineProg, inputStr):
     program = program.replace('input.txt', os.path.join(folderNm, 'input.txt'))
     program = program.replace('output.txt', os.path.join(folderNm, 'output.txt'))
 
-    filename = os.path.join(folderNm, '{}.java'.format(public_class_name))
-    with open(filename, 'w', encoding='utf8') as fw:
-        fw.write(program)
+    try:
+        filename = os.path.join(folderNm, '{}.java'.format(public_class_name))
+        with open(filename, 'w', encoding='utf8') as fw:
+            fw.write(program)
+    except:
+        public_class_name = 'Main'
+        filename = os.path.join(folderNm, '{}.java'.format(public_class_name))
+        with open(filename, 'w', encoding='utf8') as fw:
+            fw.write(program)       
 
     with open(os.path.join(folderNm, 'input.txt'), 'w', encoding='utf8') as fw:
         fw.write(inputStr)
@@ -194,6 +200,7 @@ def check_runtimeOut(args, programs, ids, testCases_dict):
         matches_bySource[sk] = 0
         totalChecked_bySource[sk] = 0
 
+    #print ("Just before assert", len(ids), len(programs), flush=True)
     assert len(ids) == len(programs)
 
     for progIndx, program in tqdm(enumerate(programs), total=len(programs)):
@@ -309,10 +316,21 @@ if __name__ == '__main__':
     programs = []
     with open(args.input_file, encoding='utf8') as f:
         for line in f:
-            programs.append(line.strip())
+            #.encode().decode("unicode-escape")
+            programs.append(line.encode().decode("unicode-escape").strip().replace("\n", "\\n"))
     ids = []
     with open(args.id_file, encoding='utf8') as f:
         for line in f:
             ids.append(line.strip())
+    '''
+    print (programs, flush=True)
+    print (ids, flush=True)
+    print ("len(programs), len(ids)", len(programs), len(ids), flush=True)
+    print ("args.input_file", args.input_file, flush=True)
+    print ("args.id_file", args.id_file, flush=True)
+    '''
+
+    #print ("programs", programs)
+    #print ("len(programs)", len(programs))
 
     check_runtimeOut(args, programs, ids, testCases_dict)

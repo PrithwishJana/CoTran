@@ -15,3 +15,4 @@ exptResults_RL
 javac*args
 *.zip
 wandb
+symflower_related/tmp/

@@ -37,33 +37,43 @@ def computeErrMetric_forPredFile(input_file, lang, writeDir):
     programs = []
     with open(input_file, encoding='utf8') as f:
         for line in f:
-            programs.append(line.strip())
+            programs.append(line.encode().decode("unicode-escape").strip())
 
     #programs = programs[77:78]
 
     errMetric_list = []
+    numError_list = []
 
     if lang == "python":
         pylint_params = ["--exit-zero", "--errors-only", '--msg-template', '{line}'] #---FOR PYLINT
         #pylint_params = ["--exit-zero", "--errors-only"] #---FOR PYLINT
         for progIndx, oneLineProgram in tqdm(enumerate(programs), total=len(programs)):
-            errMetric = compute_PyError(oneLineProgram, pylint_params, pyProcessor, tokenizedFileDir)
+            errMetric, numErr = compute_PyError(oneLineProgram, pylint_params, pyProcessor, tokenizedFileDir)
+            #print ("numErr", numErr)
             errMetric_list.append(errMetric)
+            numError_list.append(numErr)              
+            #print ("sum(numError_list)", sum(numError_list))
+            #print ("len(numError_list)", len(numError_list))
     elif lang == "java":
         javalexer = JavaLexer()
         chunkSize = 32
         oneLineProgram_chunks = [programs[x:x+chunkSize] for x in range(0, len(programs), chunkSize)]
         for chunkIndx, oneLineProgram_chunk in tqdm(enumerate(oneLineProgram_chunks), total=len(oneLineProgram_chunks)):
-            errMetric_list_perChunk = compute_JavaError(oneLineProgram_chunk, javalexer, 
+            errMetric_list_perChunk, numErr_list_perChunk = compute_JavaError(oneLineProgram_chunk, javalexer, 
                                                         jProcessor, tokenizedFileDir)
             errMetric_list.extend(errMetric_list_perChunk)
+            numError_list.extend(numErr_list_perChunk)
     #print (errMetric_list)
-    return sum(errMetric_list) * 1.0 / len(errMetric_list)
+    numErrorInErroneousCode_list = [i for i in numError_list if i != 0]
+    return sum(errMetric_list) * 1.0 / len(errMetric_list), \
+            sum(numError_list) * 1.0 / len(numError_list), \
+            sum(numErrorInErroneousCode_list) * 1.0 / len(numErrorInErroneousCode_list), \
+            sorted(numError_list)
 
 
 def compute_PyError(oneLineProg, pylint_params, pyProcessor, tokenizedFileDir):
     if len(oneLineProg.strip()) == 0:
-        return 0.0
+        return 0.0, 1
     decodedfile = pyProcessor.detokenize_code(oneLineProg)
     error_lineNum = None
 
@@ -76,6 +86,7 @@ def compute_PyError(oneLineProg, pylint_params, pyProcessor, tokenizedFileDir):
     reporter = TextReporter(StringIO())
     Run(pylint_params + [fileNm], reporter=reporter, do_exit=False)
     errorlog_content = reporter.out.getvalue().strip()
+    #print ("errorlog_content", errorlog_content)
 
     #print (decodedfile)
     #print (errorlog_content)
@@ -84,16 +95,19 @@ def compute_PyError(oneLineProg, pylint_params, pyProcessor, tokenizedFileDir):
 
     if len(errorlog_content) != 0:
         error_lineNum = int(errorlog_content.split('\n')[1])
+        numErrors = len(errorlog_content.strip().split('\n')) - 1
         #print("Error found at line: {}".format(error_lineNum)) 
 
     if error_lineNum is not None:  
         numLinesInPyProg = oneLineProg.count(" NEW_LINE") + 1 #NOTE: NEW_LINE has space in front
-        return (error_lineNum * 1.0 / (numLinesInPyProg + 1)) #doing +1, to distinguish from no error
-    return 1.0 #when no error
+        return (error_lineNum * 1.0 / (numLinesInPyProg + 1)), \
+                        numErrors #doing +1, to distinguish from no error
+    return 1.0, 0 #when no error
 
 def compute_JavaError(oneLineProg_chunk, javalexer, jProcessor, tokenizedFileDir):
     extJavaLibraries = "./AVATAR_data/data_extLibraries/"
     errMetric_list_perChunk = []
+    numErr_list_perChunk = []
     paths_allProgs = [] #list of lists
     folders_allProgs = [] #list of lists
     tokensLen_allProgs = [] #list of lists 
@@ -212,16 +226,21 @@ def compute_JavaError(oneLineProg_chunk, javalexer, jProcessor, tokenizedFileDir
         regex_pattern = re.compile(re.escape(paths_allProgs[progIndx]) +\
                                     ":([0-9]+):.error", re.S)
         error_position = regex_pattern.findall(errorlog_content_allProgs)
-        if error_position != None and len(error_position) != 0:
+        if len(oneLineProg_chunk[progIndx].strip()) == 0:
+            errMetric_list_perChunk.append(0.0)
+            numErr_list_perChunk.append(1)
+        elif error_position != None and len(error_position) != 0:
             min_error_position = min([int(x) for x in error_position]) #is 1-based, not 0-based
 
             #print (min_error_position)
 
             assert min_error_position <= tokensLen_allProgs[progIndx]
             errMetric_list_perChunk.append(min_error_position * 1.0 / (tokensLen_allProgs[progIndx] + 1))
+            numErr_list_perChunk.append(len(error_position))
             #print (min_error_position * 1.0, tokensLen_allProgs[progIndx] + 1) 
             #doing +1, to distinguish from no error
         else:
             errMetric_list_perChunk.append(1.0)
+            numErr_list_perChunk.append(0)
 
-    return errMetric_list_perChunk
+    return errMetric_list_perChunk, numErr_list_perChunk

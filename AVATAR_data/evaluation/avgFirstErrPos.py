@@ -10,8 +10,11 @@ def argParse_helperFunc():
     return args
 
 args = argParse_helperFunc()
-errStrtMetric = computeErrMetric_forPredFile(args.pathPrediction, 
+errStrtMetric, numErrMetric, numErrMetric_inErroneousCodes, sorted_numError_list = computeErrMetric_forPredFile(args.pathPrediction, 
                                             args.DEST_LANG, 
                                             args.writeDirTmp)
                                             
 print ("avgFirstErrPos:", errStrtMetric * 100)
+print ("numErrMetric:", numErrMetric)
+print ("numErrMetric_inErroneousCodes", numErrMetric_inErroneousCodes)
+print ("sorted_numError_list", sorted_numError_list)

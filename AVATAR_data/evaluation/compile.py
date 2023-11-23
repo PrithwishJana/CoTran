@@ -25,7 +25,7 @@ def check_python(args):
     errLines = []
     with open(args.input_file, encoding='utf8') as f:
         for line in f:
-            programs.append(line.strip())
+            programs.append(line.encode().decode("unicode-escape").strip())
 
     success, error, num_syntax_error, num_indent_error = 0, 0, 0, 0
     for progIndx, program in tqdm(enumerate(programs), total=len(programs)):
@@ -84,7 +84,7 @@ def check_java(args):
     errLines = []
     with open(args.input_file, encoding='utf8') as f:
         for line in f:
-            programs.append(line.strip())
+            programs.append(line.encode().decode("unicode-escape").strip())
 
     success, error, num_errors = 0, 0, 0
     for progIndx, program in tqdm(enumerate(programs), total=len(programs)):

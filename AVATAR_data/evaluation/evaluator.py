@@ -43,7 +43,7 @@ def main():
     translations = []
     with open(args.predictions, 'r', encoding='utf-8') as fh:
         for line in fh:
-            line = line.strip()
+            line = line.encode().decode("unicode-escape").strip()
             if args.detokenize_preds:
                 if args.language == 'python':
                     line = [pyprocessor.detokenize_code(r) for r in refs]
