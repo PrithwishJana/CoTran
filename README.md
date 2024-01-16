@@ -8,10 +8,6 @@ We use a collection of codes written in Java and Python from five contest websit
 
 The codes are parsed into code-specific tokens by javalang and tokenize module. Additionally, we collected test-cases for each of the problems by web-crawling the data sources. Any code that did not match the expected output on supplying the test-case inputs was manually corrected for minor faults, while the ones with major issues were discarded. Output matching is case-insensitive, ignores whitespaces, disregards punctuations (only when they are a minor portion of the output) and takes numeric or floating-point values to a common representation.
 
-The Statistics of the AVATAR-TC benchmark suite is as follows:
-
-<img width="382" alt="Screenshot 2024-01-16 at 2 14 10 AM" src="https://github.com/PrithwishJana/CoTran-Anonymous/assets/26099047/9aae2411-e926-40db-86dd-a4f3ca3bf8f1">
-
 The AVATAR-TC dataset (with all Java-Python code pairs and test-cases) is available at: `./AVATAR-TC/` 
 
 For each of the partition (train/validation/test), there is a file for Java, a file for Python and a file for the problem ID. The folder structure for the code pairs is as follows:
