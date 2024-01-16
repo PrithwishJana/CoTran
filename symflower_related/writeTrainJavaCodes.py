@@ -48,7 +48,7 @@ def runSymflower(programs):
 
         program = jprocessor.detokenize_code(oneLineProg)
 
-        folderNm = os.path.join("./symflower_related/tmp", str(oneLineProgIndx).zfill(5))
+        folderNm = os.path.join("./evosuite_related/tmp", str(oneLineProgIndx).zfill(5))
         os.makedirs(folderNm, exist_ok = False)
 
         filename = os.path.join(folderNm, '{}.java'.format(public_class_name))

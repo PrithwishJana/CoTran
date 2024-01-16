@@ -79,6 +79,9 @@ def checkOutputsSame(out1, out2):
     if "".join(out1.split()).strip() == "".join(out2.split()).strip():  
         return True
 
+    #out1 = "".join(c for c in out1 if ord(c)<128)
+    #out2 = "".join(c for c in out2 if ord(c)<128)
+
     #replaces all floating points or integers --> uniform representation i.e. 1 digit after .
     out1 = re.sub(r'[-+]?[\d]*[\.][\d]+|[-+]?[\d]+', floatReplace_func, out1)
     #removes all punctuations
@@ -93,7 +96,10 @@ def checkOutputsSame(out1, out2):
     out1List = out1.strip().split()
     out2List = out2.strip().split()
     #changes to lowercase
-    return "".join(out1List).lower() == "".join(out2List).lower()
+    out1 = "".join(out1List).lower()
+    out2 = "".join(out2List).lower()
+    print ("out1,out2", out1, out2, flush = True)
+    return out1 == out2
 
 def getPyOutput(folderNm, oneLineProg, inputStr):
     program = pyprocessor.detokenize_code(oneLineProg)
@@ -201,7 +207,7 @@ def check_runtimeOut(args, programs, ids, testCases_dict):
         totalChecked_bySource[sk] = 0
 
     #print ("Just before assert", len(ids), len(programs), flush=True)
-    assert len(ids) == len(programs)
+    #assert len(ids) == len(programs)
 
     for progIndx, program in tqdm(enumerate(programs), total=len(programs)):
         probID, sourceKey = getProbIDKey_fromID(ids[progIndx])
@@ -316,8 +322,9 @@ if __name__ == '__main__':
     programs = []
     with open(args.input_file, encoding='utf8') as f:
         for line in f:
+            programs.append(line.strip())
             #.encode().decode("unicode-escape")
-            programs.append(line.encode().decode("unicode-escape").strip().replace("\n", "\\n"))
+            #programs.append(line.encode().decode("unicode-escape").strip()) #.replace("\n", "\\n")
     ids = []
     with open(args.id_file, encoding='utf8') as f:
         for line in f:

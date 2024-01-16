@@ -16,3 +16,8 @@ javac*args
 *.zip
 wandb
 symflower_related/tmp/
+evosuite_related/tmp/
+resultsUpdate
+evosuite_related
+proposed-results/xtra
+SoTA-results/other

@@ -82,6 +82,7 @@ def check_java(args):
     global extJavaLibraries
     programs = []
     errLines = []
+    numErr_list = []
     with open(args.input_file, encoding='utf8') as f:
         for line in f:
             programs.append(line.encode().decode("unicode-escape").strip())
@@ -120,11 +121,12 @@ def check_java(args):
         try:
             check_output(command, stderr=STDOUT)
             success += 1
+            numErr_list.append(0)
         except CalledProcessError as e:
             errLines.append(progIndx + 1)
             error += 1
             error_content = e.output.decode()  # Get decoded output from subprocess
-            print (error_content)
+            print (error_content, flush = True)
             # First check if there are more than 100 errors, based on result, use regex to extract total error number
             error_number_match = regex_pattern_special.findall(error_content)
             if error_number_match != None and len(error_number_match) != 0:
@@ -136,12 +138,14 @@ def check_java(args):
                 else:
                     error_count = 1
             num_errors += int(error_count)
+            numErr_list.append(int(error_count))
 
         shutil.rmtree(folderNm, ignore_errors=True)
 
-    print('Success - {}, Errors - {} [Total - {}]'.format(success, error, num_errors))
+    print('Success - {}, Errors - {} [Total - {}]'.format(success, error, num_errors), flush = True)
     totalProgs = len(programs)
-    print (f"CompAcc: {success}/{totalProgs} =", (success * 100.0) / totalProgs, "%")
+    print (f"CompAcc: {success}/{totalProgs} =", (success * 100.0) / totalProgs, "%", flush = True)
+    print ("numErr_list:", sorted(numErr_list), flush = True)
     # print ("Errors in line nos.:", errLines)
 
 

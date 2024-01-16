@@ -1,0 +1,14 @@
+module load java/14.0.2
+
+cd ./CoTran-Anonymous/symflower_related/tmp/00000
+
+#javac -d ./CoTran-Anonymous/symflower_related/tmp/00000 \
+     -cp ./CoTran-Anonymous/symflower_related/junit-platform-console-standalone-1.10.1.jar \
+     ./CoTran-Anonymous/symflower_related/tmp/00000/SolutionSymflowerTest.java
+
+java -jar ./CoTran-Anonymous/symflower_related/junit-platform-console-standalone-1.10.1.jar\
+           execute -d ./CoTran-Anonymous/symflower_related/tmp/00000 \
+           -cp ./CoTran-Anonymous/symflower_related/tmp/00000/Solution.class
+           
+           
+./CoTran-Anonymous/symflower_related/tmp/00000/SolutionSymflowerTest.java

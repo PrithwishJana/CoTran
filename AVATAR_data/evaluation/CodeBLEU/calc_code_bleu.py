@@ -79,12 +79,13 @@ def get_codebleu(
     alpha, beta, gamma, theta = [float(x) for x in params.split(',')]
 
     # preprocess inputs
+    #x.encode().decode("unicode-escape").strip().replace("\n", "\\n")
     if txt_ref:
-        references = [[x.encode().decode("unicode-escape").strip().replace("\n", "\\n")] for \
+        references = [[x.strip()] for \
                         x in open(ref, 'r', encoding='utf-8').readlines()]
     else:
         references = [json.loads(x.strip())[lang] for x in open(ref, 'r', encoding='utf-8').readlines()]
-    hypothesis = [x.encode().decode("unicode-escape").strip().replace("\n", "\\n") for \
+    hypothesis = [x.strip() for \
                         x in open(hyp, 'r', encoding='utf-8').readlines()]
 
     assert len(hypothesis) == len(references)
