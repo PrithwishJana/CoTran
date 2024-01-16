@@ -4,6 +4,10 @@
 
 The paper introduces a new dataset **AVATAR-TC** (built on top of the AVATAR) that has pairs of equivalent whole-programs in Java and Python (a statically- and dynamically-typed language, with different syntactic styles). To the best of our knowledge, AVATAR-TC is the first large-scale dataset of codes in two different languages that has human-written test-cases (TC) for each pair, and guarantees compilability and input-output (IO) equivalence of each pair. 
 
+We use a collection of codes written in Java and Python from five contest websites: Aizu, AtCoder, Codeforces, Google-CodeJam, LeetCode, and two coding platforms: GeeksForGeeks, ProjectEuler.
+
+The codes are parsed into code-specific tokens by javalang and tokenize module. Additionally, we collected test-cases for each of the problems by web-crawling the data sources. Any code that did not match the expected output on supplying the test-case inputs was manually corrected for minor faults, while the ones with major issues were discarded. Output matching is case-insensitive, ignores whitespaces, disregards punctuations (only when they are a minor portion of the output) and takes numeric or floating-point values to a common representation.
+
 The Statistics of the AVATAR-TC benchmark suite is as follows:
 
 <img width="382" alt="Screenshot 2024-01-16 at 2 14 10 AM" src="https://github.com/PrithwishJana/CoTran-Anonymous/assets/26099047/9aae2411-e926-40db-86dd-a4f3ca3bf8f1">
@@ -25,7 +29,18 @@ For each of the partition (train/validation/test), there is a file for Java, a f
 └── valid.java-python.python
 ```
 
-Additionally, there are .json files for the human-written test-cases (TC) i.e. input-output for each Java-Python code pair.
+Additionally, there are .json files corresponding to each sub-dataset, containing human-written test-cases (TC) i.e. input-output for each Java-Python code pair.
+
+```bash
+./AVATAR-TC/
+├── io_testcases_aizu.json
+├── io_testcases_atcoder.json
+├── io_testcases_codeforces.json
+├── io_testcases_codejam.json
+├── io_testcases_geeksforgeeks.json
+├── io_testcases_leetcode.json
+└── io_testcases_projecteuler.json
+```
 
 ## Dependencies
 The repository is developed in Python and the following versions were used:
