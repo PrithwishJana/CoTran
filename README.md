@@ -62,7 +62,7 @@ Each of these will write models in the working directory, and the training can b
 
 ## AVATAR-TC Dataset
 
-The paper introduces a new dataset **AVATAR-TC** (built on top of the AVATAR) that has pairs of equivalent whole-programs in Java and Python (a statically- and dynamically-typed language, with different syntactic styles). To the best of our knowledge, AVATAR-TC is the first large-scale dataset of codes in two different languages that has human-written test-cases (TC) for each pair, and guarantees compilability and input-output (IO) equivalence of each pair. 
+The paper introduces a new dataset **AVATAR-TC** (built on top of the AVATAR) that has pairs of whole-programs in Java and Python (a statically- and dynamically-typed language, with different syntactic styles), each accompanied by human-written test-cases (TCs). To the best of our knowledge, AVATAR-TC is the first such large-scale dataset where code compilability (syntactical correctness) is ensured, and code pairs have undergone thorough testing w.r.t. human-written TCs. 
 
 We use a collection of codes written in Java and Python from five contest websites: Aizu, AtCoder, Codeforces, Google-CodeJam, LeetCode, and two coding platforms: GeeksForGeeks, ProjectEuler.
 
