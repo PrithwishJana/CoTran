@@ -105,10 +105,10 @@ Additionally, there are .json files corresponding to each sub-dataset, containin
 ## Citation
 ```bash
 @inproceedings{jana2024cotran,
-  title={{CoTran: An LLM-based Code Translator using Reinforcement Learning with Feedback from Compiler and Symbolic Execution}},
-  author={Jana, Prithwish and Jha, Piyush and Ju, Haoyang and Kishore, Gautham and Mahajan, Aryan and Ganesh, Vijay},
-  booktitle={Proceedings of the 27th European Conference on Artificial Intelligence (ECAI-2024)},
-  year={2024},
+  title = {{CoTran: An LLM-based Code Translator using Reinforcement Learning with Feedback from Compiler and Symbolic Execution}},
+  author = {Jana, Prithwish and Jha, Piyush and Ju, Haoyang and Kishore, Gautham and Mahajan, Aryan and Ganesh, Vijay},
+  booktitle = {Proceedings of the 27th European Conference on Artificial Intelligence (ECAI-2024)},
+  year = {2024},
   location = {Santiago de Compostela, Spain},
 }
 ```
