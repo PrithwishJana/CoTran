@@ -103,6 +103,8 @@ Additionally, there are .json files corresponding to each sub-dataset, containin
 ```
 
 ## Citation
+If you find the paper or this repository useful, please cite it with:
+
 ```bash
 @inproceedings{jana2024cotran,
   title = {{CoTran: An LLM-based Code Translator using Reinforcement Learning with Feedback from Compiler and Symbolic Execution}},
