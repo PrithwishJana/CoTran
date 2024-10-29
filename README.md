@@ -2,6 +2,8 @@
 
 Accepted for publication at ECAI-2024 (27th European Conference on Artificial Intelligence), 19-24 October 2024, Santiago de Compostela, Spain
 
+Paper available at: https://ebooks.iospress.nl/doi/10.3233/FAIA240968
+
 Pre-print and supplementary available at: https://arxiv.org/abs/2306.06755
 
 ## Abstract
