@@ -1,6 +1,6 @@
 # CoTran: An LLM-based Code Translator using Reinforcement Learning with Feedback from Compiler and Symbolic Execution
 
-Accepted for publication at ECAI-2024 (27th European Conference on Artificial Intelligence), 19-24 October 2024, Santiago de Compostela, Spain
+Published at ECAI-2024 (27th European Conference on Artificial Intelligence), 19-24 October 2024, Santiago de Compostela, Spain
 
 Paper available at: https://ebooks.iospress.nl/doi/10.3233/FAIA240968
 
@@ -8,11 +8,11 @@ Pre-print and supplementary available at: https://arxiv.org/abs/2306.06755
 
 ## Abstract
 
-In this paper, we present an LLM-based code translation method and an associated tool called CoTran, that translates whole-programs from one high-level programming language to another. Existing LLM-based code translation methods lack training to ensure that the translated code reliably compiles or bears substantial functional equivalence to the input code. In our work, we fine-tune an LLM using reinforcement learning, incorporating compiler feedback, and symbolic execution (symexec)-based testing feedback to assess functional equivalence between the input and output programs. The idea is to guide an LLM during fine-tuning, via compiler and symexec-based testing feedback, helping it judge how far it is from producing perfect translations. We conduct extensive experiments comparing CoTran with 14 other code translation tools, including human-written transpilers, LLM-based translation tools, and ChatGPT. Using a benchmark of over 57,000 code pairs in Java and Python, we demonstrate that CoTran outperforms the other tools on relevant metrics such as compilation accuracy (CompAcc) and functional equivalence accuracy (FEqAcc). For example, in Python-to-Java translation, CoTran achieves 48.68% FEqAcc and 76.98% CompAcc, whereas the nearest competing tool (PLBART-base) gets 38.26% and 75.77% respectively. Additionally, built upon CodeT5, CoTran improves FEqAcc by +12.94% and +14.89%, and CompAcc by +4.30% and +8.14% for Java-to-Python and Python-to-Java translations, respectively.
+In this paper, we present an LLM-based code translation method and an associated tool called CoTran, that translates whole-programs from one high-level programming language to another. Existing LLM-based code translation methods lack training to ensure that the translated code reliably compiles or bears substantial functional equivalence to the input code. In our work, we fine-tune an LLM using reinforcement learning, incorporating compiler feedback, and symbolic execution (symexec)-based testing feedback to assess functional equivalence between the input and output programs. The idea is to guide an LLM during fine-tuning, via compiler and symexec-based testing feedback, by letting it know how far it is from producing perfect translations. We conduct extensive experiments comparing CoTran with 14 other code translation tools, including human-written transpilers, LLM-based translation tools, and ChatGPT. Using a benchmark of over \num{57000} code pairs in Java and Python, we demonstrate that CoTran outperforms the other tools on relevant metrics such as compilation accuracy (CompAcc) and functional equivalence accuracy (FEqAcc). For example, in Python-to-Java translation, CoTran achieves 48.68% FEqAcc and 76.98% CompAcc, whereas the nearest competing tool (PLBART-base) gets 38.26% and 75.77% respectively. Additionally, CoTran, built on top of CodeT5, improves FEqAcc by +14.89% and CompAcc by +8.14% for Python-to-Java (resp., +12.94% and +4.30% for Java-to-Python).
 
 ## Files
 
-This repository contains the main paper (`CoTran_main.pdf`), the appendix (`CoTran_appendix.pdf`), the AVATAR-TC dataset, and all our codes. We have made a significant effort to make it easy for the user to run the code. This README file details the folder structure, library dependencies, and steps for running the code. The repository also includes the generated P2J and J2P translations obtained through the SoTA methods and CoTran variants.
+This repository contains the AVATAR-TC dataset and all the codes for CoTran. We have made a significant effort to make it easy for the user to run the code. The README file details the folder structure, library dependencies, and steps for running the code. The repository also includes the generated P2J and J2P translations obtained through the SoTA methods and CoTran variants.
 
 ## Dependencies
 The repository is developed in Python and the following versions were used:
@@ -111,8 +111,8 @@ If you find the paper or this repository useful, please cite it with:
 @inproceedings{jana2024cotran,
   title = {{CoTran: An LLM-based Code Translator using Reinforcement Learning with Feedback from Compiler and Symbolic Execution}},
   author = {Jana, Prithwish and Jha, Piyush and Ju, Haoyang and Kishore, Gautham and Mahajan, Aryan and Ganesh, Vijay},
-  booktitle = {Proceedings of the 27th European Conference on Artificial Intelligence (ECAI-2024)},
+  booktitle = {Proceedings of the 27th European Conference on Artificial Intelligence (ECAI)},
   year = {2024},
-  location = {Santiago de Compostela, Spain},
+  pages = {4011--4018}
 }
 ```
